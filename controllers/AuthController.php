@@ -21,7 +21,7 @@ class AuthController extends BaseController
 	/**
 	 * @var array
 	 */
-	public $freeAccessActions = ['login', 'logout', 'confirm-registration-email'];
+	public $freeAccessActions = ['change-own-password-via-mail','login', 'logout', 'confirm-registration-email','passwordrecovery','password-recovery-receive'];
 
 	/**
 	 * @return array
@@ -71,6 +71,42 @@ class AuthController extends BaseController
 		return $this->redirect(Yii::$app->homeUrl);
 	}
 
+		 * Change your own password
+	 *
+	 * @throws \yii\web\ForbiddenHttpException
+	 * @return string|\yii\web\Response
+	 */
+	public function actionChangeOwnPasswordViaMail()
+	{
+		if ( Yii::$app->user->isGuest )
+		{
+			return $this->goHome();
+		}
+
+		$user = User::getCurrentUser();
+
+		if ( $user->status != User::STATUS_ACTIVE )
+		{
+			throw new ForbiddenHttpException();
+		}
+
+		$model = new ChangeOwnPasswordForm(['user'=>$user]);
+
+
+		if ( Yii::$app->request->isAjax AND $model->load(Yii::$app->request->post()) )
+		{
+			Yii::$app->response->format = Response::FORMAT_JSON;
+			return ActiveForm::validate($model);
+		}
+
+		if ( $model->load(Yii::$app->request->post()) AND $model->changePassword_pwforgotten() )
+		{
+			return $this->renderIsAjax('changeOwnPasswordSuccess');
+		}
+
+		return $this->renderIsAjax('changeOwnPassword', compact('model'));
+	}
+	
 	/**
 	 * Change your own password
 	 *
