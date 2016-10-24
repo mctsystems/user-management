@@ -265,6 +265,10 @@ class AuthController extends BaseController
 		}
 
 		$user = User::findByConfirmationToken($token);
+		if($user){
+			Yii::$app->user->login($user);
+		}
+		
 
 		if ( !$user )
 		{
