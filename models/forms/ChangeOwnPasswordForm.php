@@ -79,6 +79,18 @@ class ChangeOwnPasswordForm extends Model
 	 */
 	public function changePassword($performValidation = true)
 	{
+		if ( $performValidation AND !$this->validate() )
+		{
+			return false;
+		}
+
+		$this->user->password = $this->password;
+		$this->user->removeConfirmationToken();
+		return $this->user->save();
+	}
+	
+	public function changePassword_pwforgotten($performValidation = true)
+	{
 		/*if ( $performValidation AND !$this->validate() )
 		{
 			return false;
@@ -88,4 +100,5 @@ class ChangeOwnPasswordForm extends Model
 		$this->user->removeConfirmationToken();
 		return $this->user->save();
 	}
+	
 }
