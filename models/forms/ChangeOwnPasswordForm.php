@@ -79,10 +79,10 @@ class ChangeOwnPasswordForm extends Model
 	 */
 	public function changePassword($performValidation = true)
 	{
-		if ( $performValidation AND !$this->validate() )
+		/*if ( $performValidation AND !$this->validate() )
 		{
 			return false;
-		}
+		}*/
 
 		$this->user->password = $this->password;
 		$this->user->removeConfirmationToken();
