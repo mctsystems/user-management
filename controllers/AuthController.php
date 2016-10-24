@@ -71,7 +71,7 @@ class AuthController extends BaseController
 		return $this->redirect(Yii::$app->homeUrl);
 	}
 
-		 * Change your own password
+	/* Change your own password
 	 *
 	 * @throws \yii\web\ForbiddenHttpException
 	 * @return string|\yii\web\Response
