@@ -93,7 +93,7 @@ class RegistrationForm extends Model
 
 		if ( Yii::$app->getModule('user-management')->useEmailAsLogin )
 		{
-			$user->email = $this->username;
+			$user->email = $user->username = $this->username;
 
 			// If email confirmation required then we save user with "inactive" status
 			// and without username (username will be filled with email value after confirmation)
