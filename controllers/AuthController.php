@@ -46,7 +46,7 @@ class AuthController extends BaseController
 			return $this->goHome();
 		}
 
-		$model = new LoginForm();
+		$model =new $this->module->login;
 
 		if ( Yii::$app->request->isAjax AND $model->load(Yii::$app->request->post()) )
 		{
@@ -251,7 +251,7 @@ class AuthController extends BaseController
 			return $this->goHome();
 		}
 
-		$model = new PasswordRecoveryForm();
+	 	$model = new $this->module->forgottenPassword;
 
 		if ( Yii::$app->request->isAjax AND $model->load(Yii::$app->request->post()) )
 		{
