@@ -22,7 +22,7 @@ class AuthController extends BaseController
 	/**
 	 * @var array
 	 */
-	public $freeAccessActions = ['change-own-password-via-mail','login', 'logout', 'confirm-registration-email','passwordrecovery','password-recovery-receive'];
+	public $freeAccessActions = ['change-own-password-via-mail','login', 'logout', 'confirm-registration-email','password-recovery','password-recovery-receive'];
 
 	/**
 	 * @return array
