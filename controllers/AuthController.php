@@ -187,7 +187,13 @@ class AuthController extends BaseController
 					{
 						if ( Yii::$app->getModule('user-management')->useEmailAsLogin AND Yii::$app->getModule('user-management')->emailConfirmationRequired )
 						{
-							return $this->renderIsAjax('registrationWaitForEmailConfirmation', compact('user'));
+							if("/kunde/inserieren.html"===Yii::$app->user->returnUrl){
+								Yii::$app->user->login($user);
+								return $this->redirect(Yii::$app->user->returnUrl);
+							}
+							else{
+								return $this->renderIsAjax('registrationWaitForEmailConfirmation', compact('user'));
+							}
 						}
 						else
 						{
