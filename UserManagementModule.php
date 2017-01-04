@@ -44,7 +44,7 @@ class UserManagementModule extends \yii\base\Module
 	 */
 	protected $_defaultMailerOptions = [
 		'from'=>'', // If empty it will be - [Yii::$app->params['adminEmail'] => Yii::$app->name . ' robot']
-
+		'passwordHasChangedMailViewFile'     => '/mail/passwordHasChangedMail',
 		'registrationFormViewFile'     => '/mail/registrationEmailConfirmation',
 		'passwordRecoveryFormViewFile' => '/mail/passwordRecoveryMail',
 		'confirmEmailFormViewFile'     => '/mail/emailConfirmationMail',
@@ -69,7 +69,9 @@ class UserManagementModule extends \yii\base\Module
 	 * @var string
 	 */
 	public $registrationFormClass = 'webvimark\modules\UserManagement\models\forms\RegistrationForm';
-
+	public $forgottenPassword =     'webvimark\modules\UserManagement\models\forms\PasswordRecoveryForm';
+	public $changePassword =     'webvimark\modules\UserManagement\models\forms\ChangeOwnPasswordForm';
+	public $login =     'webvimark\modules\UserManagement\models\forms\LoginForm';	
 	/**
 	 * After how many seconds confirmation token will be invalid
 	 *
