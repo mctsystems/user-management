@@ -115,34 +115,39 @@ class AuthController extends BaseController
 	 * @return string|\yii\web\Response
 	 */
 	public function actionChangeOwnPassword()
+/**
+	 * Change your own password
+	 *
+	 * @throws \yii\web\ForbiddenHttpException
+	 * @return string|\yii\web\Response
+	 */
+		public function actionChangeOwnPassword()
 	{
 		if ( Yii::$app->user->isGuest )
 		{
 			return $this->goHome();
 		}
-
 		$user = User::getCurrentUser();
-
 		if ( $user->status != User::STATUS_ACTIVE )
 		{
 			throw new ForbiddenHttpException();
 		}
-
-		$model = new ChangeOwnPasswordForm(['user'=>$user]);
-
-
+		$model = new $this->module->changePassword;
+		$model->setUser($user);
+		
+			// new ChangeOwnPasswordForm(['user'=>$user]);
 		if ( Yii::$app->request->isAjax AND $model->load(Yii::$app->request->post()) )
 		{
 			Yii::$app->response->format = Response::FORMAT_JSON;
 			return ActiveForm::validate($model);
 		}
-
-		if ( $model->load(Yii::$app->request->post()) AND $model->changePassword() )
+		
+		if ( $model->load(Yii::$app->request->post()) AND  $model->changePassword() )			
 		{
 			return $this->renderIsAjax('changeOwnPasswordSuccess');
 		}
-
-		return $this->renderIsAjax('changeOwnPassword', compact('model'));
+		$this->redirect(['/kunde/meinprofil','activeTab' => 'changePassword']);
+		//$this->renderIsAjax('changeOwnPassword', compact('model'));
 	}
 
 	/**
