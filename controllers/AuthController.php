@@ -115,13 +115,6 @@ class AuthController extends BaseController
 	 * @return string|\yii\web\Response
 	 */
 	public function actionChangeOwnPassword()
-/**
-	 * Change your own password
-	 *
-	 * @throws \yii\web\ForbiddenHttpException
-	 * @return string|\yii\web\Response
-	 */
-		public function actionChangeOwnPassword()
 	{
 		if ( Yii::$app->user->isGuest )
 		{
