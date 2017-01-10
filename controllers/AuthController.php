@@ -77,7 +77,7 @@ class AuthController extends BaseController
 	 * @throws \yii\web\ForbiddenHttpException
 	 * @return string|\yii\web\Response
 	 */
-		public function actionChangeOwnPassword()
+	public function actionChangeOwnPassword()
 	{
 		if ( Yii::$app->user->isGuest )
 		{
@@ -107,7 +107,8 @@ class AuthController extends BaseController
 		{
 			return $this->renderIsAjax('changeOwnPasswordSuccess');
 		}
-		$this->redirect(['/kunde/meinprofil','activeTab' => 'changePassword']);
+		$this->redirect(['/kunde/meinprofil','activeTab' => 'changePassword'
+				 ,'message' => 'Altes Passwort stimmte nicht mit dem eingebenen Passwort überein' ]);
 		//$this->renderIsAjax('changeOwnPassword', compact('model'));
 	}
 
