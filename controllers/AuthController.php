@@ -232,11 +232,15 @@ class AuthController extends BaseController
 			$model = new $this->module->registrationFormClass;
 
 			$user = $model->checkConfirmationToken($token);
-
-			if ( $user )
+			
+			if ($user['user'] )
+			{
+				return $this->renderIsAjax('confirmEmailSuccess', ['user' =>  $user['user'] ,'loggedIn' => $user['loggedIn'] ]);
+			}
+			/*if ( $user )
 			{
 				return $this->renderIsAjax('confirmEmailSuccess', compact('user'));
-			}
+			}*/
 
 			throw new NotFoundHttpException(UserManagementModule::t('front', 'Token not found. It may be expired'));
 		}
