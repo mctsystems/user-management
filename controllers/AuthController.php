@@ -79,6 +79,7 @@ class AuthController extends BaseController
 	 */
 	public function actionChangeOwnPasswordViaMail()
 	{
+		
 		if ( Yii::$app->user->isGuest )
 		{
 			return $this->goHome();
@@ -92,13 +93,13 @@ class AuthController extends BaseController
 		}
 
 		$model = new ChangeOwnPasswordForm(['user'=>$user]);
-
-
-		if ( Yii::$app->request->isAjax AND $model->load(Yii::$app->request->post()) )
+		$model->scenario = 'restoreViaEmail';		
+		
+		/*if ( Yii::$app->request->isAjax AND $model->load(Yii::$app->request->post()) )
 		{
 			Yii::$app->response->format = Response::FORMAT_JSON;
 			return ActiveForm::validate($model);
-		}
+		}*/
 
 		if ( $model->load(Yii::$app->request->post()) AND $model->changePassword_pwforgotten() )
 		{
@@ -308,10 +309,12 @@ class AuthController extends BaseController
 		$user = User::findByConfirmationToken($token);
 		if($user){
 			Yii::$app->user->login($user);
+			$this->redirect('/user-management/auth/change-own-password-via-mail.html');
 		}
 		
+		
 
-		if ( !$user )
+		/*if ( !$user )
 		{
 			throw new NotFoundHttpException(UserManagementModule::t('front', 'Token not found. It may be expired. Try reset password once more'));
 		}
@@ -334,7 +337,7 @@ class AuthController extends BaseController
 			}
 		}
 
-		return $this->renderIsAjax('changeOwnPassword', compact('model'));
+		return $this->renderIsAjax('changeOwnPassword', compact('model'));*/
 	}
 
 	/**
