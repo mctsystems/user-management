@@ -315,8 +315,12 @@ class AuthController extends BaseController
 		
 
 		if ( !$user )
-		{
-			throw new NotFoundHttpException(UserManagementModule::t('front', 'Token not found. It may be expired. Try reset password once more'));
+		{	
+			$exception = new NotFoundHttpException(UserManagementModule::t('front', 'Token not found. It may be expired. Try reset password once more'));
+			if ($exception !== null) {
+				return $this->render('@app/views/error/error', ['exception' => $exception,'name' =>"",'message'=>UserManagementModule::t('front', 'Token not found. It may be expired. Try reset password once more')]);
+			}
+			
 		}
 
 		/*$model = new $this->module->changePassword;
