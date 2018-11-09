@@ -45,7 +45,7 @@ return [
     'Repeat password' => 'Passwort wiederholen',
     'This E-mail already exists' => 'Diese E-Mail Adresse existiert bereits',
     'Token not found. It may be expired' => 'Token nicht gefunden. Es könnte abgelaufen sein',
-    'Token not found. It may be expired. Try reset password once more' => 'Token nicht gefunden. Es könnte abgelaufen sein. Versuchen Sie noch einmal, das Passwort zurückzusetzen',
+    'Token not found. It may be expired. Try reset password once more' => 'Der verwendete Link ist abgelaufen und nicht mehr gültig.<a href="https://www.romoto.de/romoto/passwordrecovery.html" > Bitte wählen Sie die Funktion Passwort zurücksetzen erneut! </a> ',
     'Too many attempts' => 'Zu viele Loginversuche',
     'Unable to send message for email provided' => 'Es war nicht möglich, die Nachricht an die angegebene E-Mail Adresse zu senden',
     'You could not login from this IP' => 'Sie können sich von dieser IP-Adresse aus nicht anmelden',
