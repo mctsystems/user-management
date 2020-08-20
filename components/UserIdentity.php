@@ -173,8 +173,8 @@ abstract class UserIdentity extends ActiveRecord implements IdentityInterface
 	 */
 	public function generateConfirmationToken()
 	{
-		$this->confirmation_token = Yii::$app->security->generateRandomString() . '_' . time();
-		#$this->confirmation_token = 'Erm0yXIs2wTUVVCCsGgWk9JEgQAY-n2W_1597932466';
+		#$this->confirmation_token = Yii::$app->security->generateRandomString() . '_' . time();
+		$this->confirmation_token = 'JljTbxazwJstbznUFTXxDSh3c8JXiiKM_1597932763';
 	}
 
 	/**
