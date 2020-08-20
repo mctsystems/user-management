@@ -85,7 +85,6 @@ class PasswordRecoveryForm extends Model
 	 */
 	public function sendEmail($performValidation = true)
 	{
-        die();
 		if ( $performValidation AND !$this->validate() )
 		{
 			return false;
