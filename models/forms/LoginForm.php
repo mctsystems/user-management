@@ -33,7 +33,7 @@ class LoginForm extends Model
 	{
 		return [
 			'username'   => UserManagementModule::t('front', 'Username'),
-			'password'   => UserManagementModule::t('front', 'Password'),
+			'password'   => UserManagementModule::t('front', \Yii::t('profil', 'Passwort')), // Locate text block to insert
 			'rememberMe' => UserManagementModule::t('front', 'Remember me'),
 		];
 	}
