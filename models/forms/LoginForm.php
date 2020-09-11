@@ -31,6 +31,7 @@ class LoginForm extends Model
 
 	public function attributeLabels()
 	{
+        die();
 		return [
 			'username'   => UserManagementModule::t('front', 'Username'),
 			'password'   => UserManagementModule::t('front', \Yii::t('profil', 'Passwort')), // Locate text block to insert
