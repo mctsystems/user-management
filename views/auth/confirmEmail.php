@@ -9,7 +9,7 @@ use yii\helpers\Html;
  * @var webvimark\modules\UserManagement\models\forms\ConfirmEmailForm $model
  */
 
-$this->title = Yii::t('layout', 'confirm_email');
+$this->title = UserManagementModule::t('front', 'Confirm E-mail');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				<div class="form-group">
 					<div class="col-sm-offset-3 col-sm-9">
 						<?= Html::submitButton(
-							'<span class="glyphicon glyphicon-ok"></span> ' . Yii::t('layout', 'confirm'),
+							'<span class="glyphicon glyphicon-ok"></span> ' . UserManagementModule::t('front', 'Confirm'),
 							['class' => 'btn btn-primary']
 						) ?>
 					</div>
@@ -49,11 +49,9 @@ $this->params['breadcrumbs'][] = $this->title;
 			<?php else: ?>
 
 				<div class="alert alert-info text-center">
-					<?= Yii::t('layout', 'mail_activation', [
-						'0' => '<strong>',
-						'1' => '</strong>',
-						'mail' => $model->user->email,
-						'min' => $model->getTokenTimeLeft(true),
+					<?= UserManagementModule::t('back', 'E-mail with activation link has been sent to <b>{email}</b>. This link will expire in {minutes} min.', [
+						'email'=>$model->user->email,
+						'minutes'=>$model->getTokenTimeLeft(true),
 					]) ?>
 				</div>
 			<?php endif; ?>
