@@ -33,8 +33,7 @@ class LoginForm extends Model
 	{
 		return [
 			'username'   => UserManagementModule::t('front', 'Username'),
-			//'password'   => \Yii::t('profil', 'Passwort'), // Locate text block to insert
-			'password'   => UserManagementModule::t('front', 'Password'), // Not 
+			'password'   => UserManagementModule::t('front', 'Password'),
 			'rememberMe' => UserManagementModule::t('front', 'Remember me'),
 		];
 	}
@@ -57,7 +56,7 @@ class LoginForm extends Model
 			$user = $this->getUser();
 			if ( !$user || !$user->validatePassword($this->password) )
 			{
-				$this->addError('password', UserManagementModule::t('front', 'Incorrect username or password.'));
+				$this->addError('password', \Yii::t('romoto', 'wrong_un_pw'));
 			}
 		}
 	}
