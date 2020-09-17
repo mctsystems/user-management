@@ -7,13 +7,13 @@ use webvimark\modules\UserManagement\UserManagementModule;
  * @var webvimark\modules\UserManagement\models\User $user
  */
 
-$this->title = \Yii::t('layout', 'check_email_activate_account');
+$this->title = \Yii::t('layout', 'check_email');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="registration-wait-for-confirmation">
 
 	<div class="alert alert-info text-center">
-		<?= \Yii::t('layout', 'check_email_activate_account') ?> <b><?= $user->email ?></b>
+		<?= \Yii::t('romoto', 'check_email') ?> <b><?= $user->email ?></b>
 	</div>
 
 </div>
