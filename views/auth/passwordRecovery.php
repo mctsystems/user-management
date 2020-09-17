@@ -10,7 +10,7 @@ use yii\helpers\Html;
  * @var webvimark\modules\UserManagement\models\forms\PasswordRecoveryForm $model
  */
 
-$this->title = UserManagementModule::t('front', 'Password recovery');
+$this->title = \Yii::t('romoto', 'pw_reset');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
