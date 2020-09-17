@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="registration-wait-for-confirmation">
 
 	<div class="alert alert-info text-center">
-		<?= \Yii::t('romoto', 'check_email') ?> <b><?= $user->email ?></b>
+		<?= \Yii::t('romoto', 'check_mail') ?> <b><?= $user->email ?></b>
 	</div>
 
 </div>
