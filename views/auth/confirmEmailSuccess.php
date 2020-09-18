@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 		<?php if ( isset($_GET['returnUrl']) ): ?>
 			<br/>
 			<br/>
-			<b><?= Html::a(UserManagementModule::t('front', 'Continue'), $_GET['returnUrl']) ?></b>
+			<b><?= Html::a(\Yii::t('inserieren', 'confirm_weiterleitung'), $_GET['returnUrl']) ?></b>
 		<?php endif; ?>
 	</div>
 

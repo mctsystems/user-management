@@ -48,8 +48,8 @@ class ChangeOwnPasswordForm extends Model
 	{
 		return [
 			'current_password' => UserManagementModule::t('back', 'Current password'),
-			'password'         => UserManagementModule::t('front', 'Password'),
-			'repeat_password'  => UserManagementModule::t('front', 'Repeat password'),
+			'password'         => \Yii::t('profil', 'Passwort'),
+			'repeat_password'  => \Yii::t('kunde', 'repeat_passwort'),
 		];
 	}
 

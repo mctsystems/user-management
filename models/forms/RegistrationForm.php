@@ -71,7 +71,7 @@ class RegistrationForm extends Model
 		return [
 			'username'        => Yii::$app->getModule('user-management')->useEmailAsLogin ? 'E-mail' : UserManagementModule::t('front', 'Login'),
 			'password'        => UserManagementModule::t('front', 'Password'),
-			'repeat_password' => UserManagementModule::t('front', 'Repeat password'),
+			'repeat_password' => \Yii::t('kunde', 'repeat_passwort'),
 			'captcha'         => UserManagementModule::t('front', 'Captcha'),
 		];
 	}
