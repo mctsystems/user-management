@@ -47,7 +47,7 @@ class ChangeOwnPasswordForm extends Model
 	public function attributeLabels()
 	{
 		return [
-			'current_password' => UserManagementModule::t('back', 'Current password'),
+			'current_password' => \Yii::t('kunde', 'aktuelles_passwort'),
 			'password'         => \Yii::t('profil', 'Passwort'),
 			'repeat_password'  => \Yii::t('kunde', 'repeat_passwort'),
 		];
