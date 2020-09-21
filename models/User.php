@@ -326,7 +326,7 @@ class User extends UserIdentity
 			'created_at'         => UserManagementModule::t('back', 'Created'),
 			'updated_at'         => UserManagementModule::t('back', 'Updated'),
 			'password'           => UserManagementModule::t('back', 'Password'),
-			'repeat_password'    => UserManagementModule::t('back', 'Repeat password'),
+			'repeat_password'    => \Yii::t('kunde', 'repeat_passwort'),
 			'email_confirmed'    => UserManagementModule::t('back', 'E-mail confirmed'),
 			'email'              => UserManagementModule::t('back', 'E-mail'),
 		];
