@@ -63,7 +63,7 @@ class PasswordRecoveryForm extends Model
 		}
 		else
 		{
-			$this->addError('email', UserManagementModule::t('front', 'E-mail is invalid'));
+			$this->addError('email', \Yii::t('kunde', 'email_invalid'));
 		}
 	}
 
